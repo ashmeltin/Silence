@@ -24,6 +24,16 @@
             android:id="@+id/onGoingTimers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/addNewTimer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            />
     </LinearLayout>
 </ScrollView>

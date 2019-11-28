@@ -105,13 +105,16 @@ public class SetTime extends AppCompatActivity {
         Button done = findViewById(R.id.doneButton);
         done.setText("done");
         done.setOnClickListener(v -> {
-            setContentView(R.layout.manage_times);
-            Button backButton = findViewById(R.id.backButton);
-            backButton.setText("back");
-            backButton.setOnClickListener(b -> {
-                startActivity(new Intent(this, MainActivity.class));
-            });
-            updateUI();
+           String timerName = getTimerName();
+           String timeRange = "Placeholder";
+           String daysSelected = getDayString(days);
+           Intent intent = new Intent(SetTime.this, ManageTime.class);
+           Bundle b = new Bundle();
+           b.putString("timerName", timerName);
+           b.putString("timeRange", timeRange);
+           b.putString("daysSelected", daysSelected);
+           intent.putExtras(b);
+           startActivityForResult(intent, 0);
         });
     }
     public String getTimerName() {
@@ -137,27 +140,5 @@ public class SetTime extends AppCompatActivity {
         time[0] = endTimer.getHour();
         time[1] = endTimer.getMinute();
         return time;
-    }
-    public void updateUI() {
-        LinearLayout parent = findViewById(R.id.onGoingTimers);
-        View ongoingTimersChunk = getLayoutInflater().inflate(R.layout.chunk_ongoing_timers, parent, false);
-        TextView setName = ongoingTimersChunk.findViewById(R.id.setTimerName);
-        setName.setText(getTimerName());
-        TextView setRange = ongoingTimersChunk.findViewById(R.id.timeRange);
-        setRange.setText("placeholder");
-        TextView setDays = ongoingTimersChunk.findViewById(R.id.days);
-        setDays.setText(getDayString(days));
-        Button edit = ongoingTimersChunk.findViewById(R.id.edit);
-        edit.setText("edit");
-        edit.setOnClickListener(v -> {
-            parent.removeAllViews();
-            startActivity(new Intent(this, SetTime.class));
-        });
-        Button delete = ongoingTimersChunk.findViewById(R.id.delete);
-        delete.setText("delete");
-        delete.setOnClickListener(v -> {
-            parent.removeAllViews();
-        });
-        parent.addView(ongoingTimersChunk);
     }
 }

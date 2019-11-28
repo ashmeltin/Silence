@@ -61,43 +61,43 @@ public class SetTime extends AppCompatActivity {
         sunday.setText("s");
         if (sunday.isChecked()) {
             //set timer on sunday
-            days.add("s");
+            days.add(0,"s");
         }
         CheckBox monday = findViewById(R.id.monday);
         monday.setText("m");
         if (monday.isChecked()) {
             //set timer on monday
-            days.add("m");
+            days.add(0,"m");
         }
         CheckBox tuesday = findViewById(R.id.tuesday);
         tuesday.setText("t");
         if (tuesday.isChecked()) {
             //set timer on tuesday
-            days.add("t");
+            days.add(0,"t");
         }
         CheckBox wednesday = findViewById(R.id.wednesday);
         wednesday.setText("w");
         if (wednesday.isChecked()) {
             //set timer on wednesday
-            days.add("w");
+            days.add(0,"w");
         }
         CheckBox thursday = findViewById(R.id.thursday);
         thursday.setText("t");
         if (thursday.isChecked()) {
             //set timer on thursday
-            days.add("t");
+            days.add(0,"t");
         }
         CheckBox friday = findViewById(R.id.friday);
         friday.setText("f");
         if (friday.isChecked()) {
             //set timer on friday
-            days.add("f");
+            days.add(0,"f");
         }
         CheckBox saturday = findViewById(R.id.saturday);
         saturday.setText("s");
         if (saturday.isChecked()) {
             //set timer on saturday
-            days.add("s");
+            days.add(0,"s");
         }
 
         //done button code
@@ -145,11 +145,13 @@ public class SetTime extends AppCompatActivity {
         TextView setDays = ongoingTimersChunk.findViewById(R.id.days);
         setDays.setText(getDayString(days));
         Button edit = ongoingTimersChunk.findViewById(R.id.edit);
+        edit.setText("edit");
         edit.setOnClickListener(v -> {
             parent.removeAllViews();
             startActivity(new Intent(this, SetTime.class));
         });
         Button delete = ongoingTimersChunk.findViewById(R.id.delete);
+        delete.setText("delete");
         delete.setOnClickListener(v -> {
             parent.removeAllViews();
         });

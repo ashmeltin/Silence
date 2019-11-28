@@ -32,20 +32,20 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAllCaps="false"
-            android:layout_marginLeft="50dp"/>
-
-        <Button
             android:id="@+id/edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="125dp"
             />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:textAllCaps="false" />
     </LinearLayout>
 </LinearLayout>

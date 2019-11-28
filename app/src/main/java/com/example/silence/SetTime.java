@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -61,43 +62,43 @@ public class SetTime extends AppCompatActivity {
         sunday.setText("s");
         if (sunday.isChecked()) {
             //set timer on sunday
-            days.add(0,"s");
+            days.add("s");
         }
         CheckBox monday = findViewById(R.id.monday);
         monday.setText("m");
         if (monday.isChecked()) {
             //set timer on monday
-            days.add(0,"m");
+            days.add("m");
         }
         CheckBox tuesday = findViewById(R.id.tuesday);
         tuesday.setText("t");
         if (tuesday.isChecked()) {
             //set timer on tuesday
-            days.add(0,"t");
+            days.add("t");
         }
         CheckBox wednesday = findViewById(R.id.wednesday);
         wednesday.setText("w");
         if (wednesday.isChecked()) {
             //set timer on wednesday
-            days.add(0,"w");
+            days.add("w");
         }
         CheckBox thursday = findViewById(R.id.thursday);
         thursday.setText("t");
         if (thursday.isChecked()) {
             //set timer on thursday
-            days.add(0,"t");
+            days.add("t");
         }
         CheckBox friday = findViewById(R.id.friday);
         friday.setText("f");
         if (friday.isChecked()) {
             //set timer on friday
-            days.add(0,"f");
+            days.add("f");
         }
         CheckBox saturday = findViewById(R.id.saturday);
         saturday.setText("s");
         if (saturday.isChecked()) {
             //set timer on saturday
-            days.add(0,"s");
+            days.add("s");
         }
 
         //done button code
@@ -117,11 +118,13 @@ public class SetTime extends AppCompatActivity {
         return setName.getText().toString();
     }
     public String getDayString(List<String> days) {
-        String dayString = "";
-        for (int i = 0; i < days.size(); i++) {
-            dayString = dayString + " " + days.get(i);
+        StringBuilder sb = new StringBuilder();
+        for (String s : days) {
+            sb.append(s);
+            sb.append("\t");
         }
-        return dayString;
+        Log.d("PRINT", sb.toString());
+        return sb.toString();
     }
     public int[] getStartTime() {
         int[] time = new int[2];

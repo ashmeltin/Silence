@@ -60,46 +60,24 @@ public class SetTime extends AppCompatActivity {
         //checkbox code
         CheckBox sunday = findViewById(R.id.sunday);
         sunday.setText("s");
-        if (sunday.isChecked()) {
-            //set timer on sunday
-            days.add("s");
-        }
+
         CheckBox monday = findViewById(R.id.monday);
         monday.setText("m");
-        if (monday.isChecked()) {
-            //set timer on monday
-            days.add("m");
-        }
+
         CheckBox tuesday = findViewById(R.id.tuesday);
         tuesday.setText("t");
-        if (tuesday.isChecked()) {
-            //set timer on tuesday
-            days.add("t");
-        }
+
         CheckBox wednesday = findViewById(R.id.wednesday);
         wednesday.setText("w");
-        if (wednesday.isChecked()) {
-            //set timer on wednesday
-            days.add("w");
-        }
+
         CheckBox thursday = findViewById(R.id.thursday);
         thursday.setText("t");
-        if (thursday.isChecked()) {
-            //set timer on thursday
-            days.add("t");
-        }
+
         CheckBox friday = findViewById(R.id.friday);
         friday.setText("f");
-        if (friday.isChecked()) {
-            //set timer on friday
-            days.add("f");
-        }
+
         CheckBox saturday = findViewById(R.id.saturday);
         saturday.setText("s");
-        if (saturday.isChecked()) {
-            //set timer on saturday
-            days.add("s");
-        }
 
         //done button code
         Button done = findViewById(R.id.doneButton);
@@ -140,5 +118,33 @@ public class SetTime extends AppCompatActivity {
         time[0] = endTimer.getHour();
         time[1] = endTimer.getMinute();
         return time;
+    }
+    public void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        int id = view.getId();
+        if (checked) {
+            if (id == R.id.sunday) {
+                days.add("s");
+            }
+            if (id == R.id.monday) {
+                days.add("m");
+            }
+            if (id == R.id.tuesday) {
+                days.add("t");
+            }
+            if (id == R.id.wednesday) {
+                days.add("w");
+            }
+            if (id == R.id.thursday) {
+                days.add("t");
+            }
+            if (id == R.id.friday) {
+                days.add("f");
+            }
+            if (id == R.id.saturday) {
+                days.add("s");
+            }
+        }
+        return;
     }
 }

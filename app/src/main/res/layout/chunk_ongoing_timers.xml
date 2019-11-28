@@ -13,22 +13,26 @@
             android:id="@+id/timerInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="10dp">
 
             <TextView
                 android:id="@+id/setTimerName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"/>
 
             <TextView
                 android:id="@+id/timeRange"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"/>
 
             <TextView
                 android:id="@+id/days"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"/>
         </LinearLayout>
 
         <Button
@@ -37,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAllCaps="false"
-            android:layout_marginStart="125dp"
+            android:layout_marginStart="100dp"
             />
 
         <Button
@@ -46,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            />
     </LinearLayout>
 </LinearLayout>

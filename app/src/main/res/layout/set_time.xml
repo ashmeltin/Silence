@@ -13,12 +13,29 @@
         <Button
             android:id="@+id/backButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="300dp"
+            android:textAllCaps="false"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/setTimerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:gravity="center"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/chooseStart"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:textSize="30sp" />
 
         <TimePicker
             android:id="@+id/startTime"
@@ -28,7 +45,11 @@
         <TextView
             android:id="@+id/chooseEnd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:textSize="30sp"
+            />
 
         <TimePicker
             android:id="@+id/endTime"
@@ -87,7 +108,9 @@
         <Button
             android:id="@+id/doneButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textAllCaps="false"
+            />
 
     </LinearLayout>
 </ScrollView>

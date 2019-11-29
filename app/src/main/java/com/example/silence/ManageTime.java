@@ -17,7 +17,6 @@ public class ManageTime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_times);
-        setTitle("manage times"); //still dk what this does
         Button back = findViewById(R.id.backButton);
         back.setText("back");
         back.setOnClickListener(v -> {
@@ -27,6 +26,7 @@ public class ManageTime extends AppCompatActivity {
         addNew.setText("add a time");
         addNew.setOnClickListener(v -> {
             startActivity(new Intent(this, SetTime.class));
+            updateUI();
         });
         updateUI();
     }

@@ -25,7 +25,6 @@ public class SetTime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.set_time);
-        setTitle("set a time"); //still dk what this does
         days = new ArrayList<>();
 
         //back button code
@@ -59,25 +58,25 @@ public class SetTime extends AppCompatActivity {
 
         //checkbox code
         CheckBox sunday = findViewById(R.id.sunday);
-        sunday.setText("s");
+        sunday.setText("su");
 
         CheckBox monday = findViewById(R.id.monday);
         monday.setText("m");
 
         CheckBox tuesday = findViewById(R.id.tuesday);
-        tuesday.setText("t");
+        tuesday.setText("tu");
 
         CheckBox wednesday = findViewById(R.id.wednesday);
         wednesday.setText("w");
 
         CheckBox thursday = findViewById(R.id.thursday);
-        thursday.setText("t");
+        thursday.setText("th");
 
         CheckBox friday = findViewById(R.id.friday);
         friday.setText("f");
 
         CheckBox saturday = findViewById(R.id.saturday);
-        saturday.setText("s");
+        saturday.setText("sa");
 
         //done button code
         Button done = findViewById(R.id.doneButton);
@@ -102,7 +101,7 @@ public class SetTime extends AppCompatActivity {
         StringBuilder sb = new StringBuilder();
         for (String s : days) {
             sb.append(s);
-            sb.append("\t");
+            sb.append("\t\t");
         }
         Log.d("PRINT", sb.toString());
         return sb.toString();
@@ -124,25 +123,25 @@ public class SetTime extends AppCompatActivity {
         int id = view.getId();
         if (checked) {
             if (id == R.id.sunday) {
-                days.add("s");
+                days.add("su");
             }
             if (id == R.id.monday) {
                 days.add("m");
             }
             if (id == R.id.tuesday) {
-                days.add("t");
+                days.add("tu");
             }
             if (id == R.id.wednesday) {
                 days.add("w");
             }
             if (id == R.id.thursday) {
-                days.add("t");
+                days.add("th");
             }
             if (id == R.id.friday) {
                 days.add("f");
             }
             if (id == R.id.saturday) {
-                days.add("s");
+                days.add("sa");
             }
         }
         return;

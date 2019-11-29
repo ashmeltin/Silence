@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-        setTitle("silence"); //idk what this does but it says "change the title in the top bar"
         Button setTime = findViewById(R.id.setTime); //initializes button setTime
         Button manageTime = findViewById(R.id.manageTime); //initializes button manageTime
         TextView appName = findViewById(R.id.appName); //initializes textView appName

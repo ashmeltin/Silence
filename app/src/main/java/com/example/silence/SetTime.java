@@ -91,7 +91,8 @@ public class SetTime extends AppCompatActivity {
            b.putString("timeRange", timeRange);
            b.putString("daysSelected", daysSelected);
            intent.putExtras(b);
-           startActivityForResult(intent, 0);
+           startActivity(intent);
+           finish();
         });
     }
     public String getTimerName() {
@@ -103,7 +104,6 @@ public class SetTime extends AppCompatActivity {
             sb.append(s);
             sb.append("\t\t");
         }
-        Log.d("PRINT", sb.toString());
         return sb.toString();
     }
     public int[] getStartTime() {

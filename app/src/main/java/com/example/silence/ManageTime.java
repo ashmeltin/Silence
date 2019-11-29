@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 public class ManageTime extends AppCompatActivity {
-    private SetTime setTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,6 @@ public class ManageTime extends AppCompatActivity {
         addNew.setText("add a time");
         addNew.setOnClickListener(v -> {
             startActivity(new Intent(this, SetTime.class));
-            updateUI();
         });
         updateUI();
     }

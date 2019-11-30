@@ -37,7 +37,7 @@ public class SetTime extends AppCompatActivity {
 
         //set name code
         setName = findViewById(R.id.setTimerName);
-        setName.setText("Timer Name");
+        setName.setText("Enter Name");
 
         //start timer code
         startTimer = findViewById(R.id.startTime);

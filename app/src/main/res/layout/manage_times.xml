@@ -34,6 +34,7 @@
             android:layout_height="match_parent"
             android:textAllCaps="false"
             android:textSize="14sp"
+            android:layout_margin="5dp"
             />
     </LinearLayout>
 </ScrollView>

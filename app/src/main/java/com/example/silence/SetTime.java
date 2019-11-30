@@ -1,5 +1,6 @@
 package com.example.silence;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -31,7 +32,7 @@ public class SetTime extends AppCompatActivity {
         Button back = findViewById(R.id.backButton);
         back.setText("back");
         back.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, ManageTime.class));
         });
 
         //set name code
@@ -85,13 +86,11 @@ public class SetTime extends AppCompatActivity {
            String timerName = getTimerName();
            String timeRange = "Placeholder";
            String daysSelected = getDayString(days);
-           Intent intent = new Intent(SetTime.this, ManageTime.class);
-           Bundle b = new Bundle();
-           b.putString("timerName", timerName);
-           b.putString("timeRange", timeRange);
-           b.putString("daysSelected", daysSelected);
-           intent.putExtras(b);
-           startActivity(intent);
+           Intent intent = new Intent();
+           intent.putExtra("timerName", timerName);
+           intent.putExtra("timeRange", timeRange);
+           intent.putExtra("daysSelected", daysSelected);
+           setResult(Activity.RESULT_OK, intent);
            finish();
         });
     }

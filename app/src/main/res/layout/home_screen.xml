@@ -25,14 +25,6 @@
         />
 
     <Button
-        android:id="@+id/setTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="175dp"
-        android:layout_marginTop="100dp"
-        android:textAllCaps="false" />
-
-    <Button
         android:id="@+id/manageTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

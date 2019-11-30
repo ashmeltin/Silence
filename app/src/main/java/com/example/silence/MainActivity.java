@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_screen);
-        Button setTime = findViewById(R.id.setTime); //initializes button setTime
         Button manageTime = findViewById(R.id.manageTime); //initializes button manageTime
         TextView appName = findViewById(R.id.appName); //initializes textView appName
         TextView quote = findViewById(R.id.quote); //initializes textView quote
@@ -25,10 +24,6 @@ public class MainActivity extends AppCompatActivity {
         quote.setText("the quieter you become, the more you will be able to hear");
         quote.setTextColor(Color.WHITE);
         quote.setVisibility(View.VISIBLE);
-        setTime.setText("set a time");
-        setTime.setOnClickListener(v -> {
-            startActivity(new Intent(this, SetTime.class));
-        });
         manageTime.setText("manage times");
         manageTime.setOnClickListener(v -> {
             startActivity(new Intent(this, ManageTime.class));

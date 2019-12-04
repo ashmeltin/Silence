@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
-
 public class ManageTime extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +25,13 @@ public class ManageTime extends AppCompatActivity {
             startActivityForResult(new Intent(this, SetTime.class),1);
         });
     }
+    public long lengthOfTime(int[] start, int[] end) {
+        int hours = end[0] - start[0];
+        int minutes = Math.abs(end[1] - start[1]);
+        long hourMilliseconds = hours * 60 * 60 * 1000;
+        long minutesMilliseconds = minutes * 60 * 1000;
+        return hourMilliseconds + minutesMilliseconds;
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -34,6 +39,10 @@ public class ManageTime extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 LinearLayout parent = findViewById(R.id.onGoingTimers);
                 View ongoingTimersChunk = getLayoutInflater().inflate(R.layout.chunk_ongoing_timers, parent, false);
+
+                int[] startTime = data.getIntArrayExtra("startTime");
+                int[] endTime = data.getIntArrayExtra("endTime");
+                long timeLength = lengthOfTime(startTime, endTime);
 
                 TextView setName = ongoingTimersChunk.findViewById(R.id.setTimerName);
                 String timerName = data.getStringExtra("timerName");

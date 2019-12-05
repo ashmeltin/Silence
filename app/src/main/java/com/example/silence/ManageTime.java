@@ -3,6 +3,7 @@ package com.example.silence;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,9 +43,15 @@ public class ManageTime extends AppCompatActivity {
                 LinearLayout parent = findViewById(R.id.onGoingTimers);
                 View ongoingTimersChunk = getLayoutInflater().inflate(R.layout.chunk_ongoing_timers, parent, false);
 
+                String[] days = data.getStringArrayExtra("days");
+
                 int[] startTime = data.getIntArrayExtra("startTime");
+                Calendar cal = Calendar.getInstance();
+                cal.setTimeInMillis(System.currentTimeMillis());
+                cal.set(Calendar.HOUR_OF_DAY, startTime[0]);
+                cal.set(Calendar.MINUTE, startTime[1]);
+
                 int[] endTime = data.getIntArrayExtra("endTime");
-                long timeLength = lengthOfTime(startTime, endTime);
 
                 TextView setName = ongoingTimersChunk.findViewById(R.id.setTimerName);
                 String timerName = data.getStringExtra("timerName");
@@ -71,13 +78,20 @@ public class ManageTime extends AppCompatActivity {
                     ongoingTimersChunk.setVisibility(View.GONE);
                 });
                 parent.addView(ongoingTimersChunk);
+
+                //alarm code
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(System.currentTimeMillis());
+                calendar.set(Calendar.HOUR_OF_DAY, startTime[0]);
+                calendar.set(Calendar.MINUTE, startTime[1]);
+
+                Intent intent = new Intent(this, SilenceBroadcastReceiver.class);
+                intent.putExtra("endTime", endTime);
+                PendingIntent pending = PendingIntent.getBroadcast(this.getApplicationContext(), 2, intent, 0);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7, pending);
+                //this will be set on the exact same day because logic errors I don't wanna deal with rn
             }
         }
-    }
-    public void startAlert() {
-        Intent intent = new Intent(this, SilenceBroadcastReceiver.class);
-        PendingIntent pending = PendingIntent.getBroadcast(this.getApplicationContext(), 2, intent, 0);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        //alarmManager.set()
     }
 }

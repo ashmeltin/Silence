@@ -82,7 +82,9 @@ public class SetTime extends AppCompatActivity {
         done.setText("done");
         done.setOnClickListener(v -> {
            String timerName = getTimerName();
-           String timeRange = "Placeholder";
+           int[] startTime = getStartTime();
+           int[] endTime = getEndTime();
+           String timeRange = startTime[0] + ":" + startTime[1] + " - " + endTime[0] + ":" + endTime[1];
            String daysSelected = getDayString(days);
            Intent intent = new Intent();
            intent.putExtra("timerName", timerName);
@@ -90,9 +92,17 @@ public class SetTime extends AppCompatActivity {
            intent.putExtra("daysSelected", daysSelected);
            intent.putExtra("startTime", getStartTime());
            intent.putExtra("endTime",getEndTime());
+           intent.putExtra("days", getDaysSelected(days));
            setResult(Activity.RESULT_OK, intent);
            finish();
         });
+    }
+    public String[] getDaysSelected(List<String> days) {
+        String[] daysSelected = new String[days.size()];
+        for (int i = 0; i < days.size(); i++) {
+            daysSelected[i] = days.get(i);
+        }
+        return daysSelected;
     }
     public String getTimerName() {
         return setName.getText().toString();

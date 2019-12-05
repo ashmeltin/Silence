@@ -6,13 +6,17 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.icu.util.Calendar;
+import android.media.AudioManager;
 
 import static android.content.Context.ALARM_SERVICE;
 
 public class SilenceBroadcastReceiver extends BroadcastReceiver {
+    AudioManager audioManager;
     @Override
     public void onReceive(Context context, Intent intent) {
         //silencing API code here
+        audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
         int[] endTime = intent.getIntArrayExtra("endTime");
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());

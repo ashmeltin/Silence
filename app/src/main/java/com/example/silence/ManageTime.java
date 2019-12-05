@@ -1,5 +1,7 @@
 package com.example.silence;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -71,5 +73,11 @@ public class ManageTime extends AppCompatActivity {
                 parent.addView(ongoingTimersChunk);
             }
         }
+    }
+    public void startAlert() {
+        Intent intent = new Intent(this, SilenceBroadcastReceiver.class);
+        PendingIntent pending = PendingIntent.getBroadcast(this.getApplicationContext(), 2, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        //alarmManager.set()
     }
 }

@@ -2,8 +2,11 @@ package com.example.silence;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +17,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        NotificationManager n = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        if(n.isNotificationPolicyAccessGranted()) {
+        }else{
+            // Ask the user to grant access
+            Intent intent = new Intent(android.provider.Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+            startActivityForResult(intent, 0);
+        }
         setContentView(R.layout.home_screen);
         Button manageTime = findViewById(R.id.manageTime); //initializes button manageTime
         TextView appName = findViewById(R.id.appName); //initializes textView appName
